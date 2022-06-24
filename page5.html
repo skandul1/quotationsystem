@@ -1,0 +1,654 @@
+
+ 
+<!DOCTYPE html>
+<html>
+<script src="page5.js"></script>
+<style>
+  h1 {text-align: center;}
+ /*body { 
+  width:192px;
+  padding: 0; 
+  margin: 0; 
+}*/
+/*#body {
+width: 100%;
+height: 100%;
+}*/
+#html {
+    height: 100%;
+}
+#body {
+    min-height: 100%;
+}
+</style> 
+<style> 
+.div1 {
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.div2 {
+  width: 300px;
+  height: 100px;  
+  padding: 50px;
+  border: 1px solid red;
+}
+</style>
+<!-- <script type="text/javascript">
+      
+    </script> -->
+<head>
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<style>
+.exp{visibility: hidden;}
+</style>
+</head>
+
+  <head>
+
+  <!-- <link rel="stylesheet" href="page1.css"> -->
+
+</head>
+<body>
+  <form action = "http://localhost:5000/login" method = "post">
+<h1>Quotation System</h1>
+<br>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+
+</div>
+<div class="container" id="selectManufacturer">
+<input type="button" class="button" value="ACCEPT QUOTE" style="background-color:green; float: right;">
+<input type="button" class="button" value="+ NEW" style="background-color:blue ;float: right;">
+<h1>New Quote</h1>
+<br>
+<br>
+<div>
+  <div class="box" style="background-color:white">
+    <br>
+<!-- <form name="form1" id="form1" action="/action_page.php" id=ddlModels onchange = "EnableDisableTextBox(this)"> -->
+<label for="quote">Quote no&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Quote_no"><!-- <br><br> -->
+Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  <br>
+  
+  Model &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Model" id="Model">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  <br><!-- <br> -->
+<!--     Machine name &nbsp; &nbsp;: <select name="Model" id="Model">
+    <option value="" selected="selected">Select Your Model First</option>
+  </select>
+  <br><br> -->
+  <label for="quote">Part Number&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Part_Number"><br>
+<label for="quote">Part  Name &nbsp; &nbsp; &nbsp;</label>
+<input type="text" id="quote" name="Part_Name"><!-- <br><br> -->
+  </div>
+  <div class="box" style="background-color:white;">
+  <label for="Material">Material</label><br>
+<!-- <form name="form1" id="form1" action="/action_page.php" id=ddlModels onchange = "EnableDisableTextBox(this)"> -->
+  Category &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<select name="Category" id="Category">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  <br>
+  Form &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Form" id="Form">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  <!-- <br><br> -->
+  <label for="quote">Alloy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Alloy"><br><!-- <br> -->
+<label for="quote">Temper&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Temper"><!-- br><br> -->
+<label for="quote">Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Profile"><!-- <br><br> -->
+  </div>
+<div class="clearfix">
+  <div class="box1" style="background-color:white">
+    <!-- <br> -->
+    <b>Part Size</b>
+    <hr size="1" color="black"> 
+    <!-- <br> -->
+    <!-- <br> -->
+    <!-- <br style="line-height:0px;" /> -->
+  <label for="Thickness (inch)">Thickness(inch)&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="Thickness (inch)" name="Part_Size_Thickness" value="0" placeholder="Thickness (inch)" style="width: 72px"><br><!-- <br> -->
+  <label for="Width(inch)">Width(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="Width(inch)" name="Part_Size_Width" value="0" style="width: 72px"><br><!-- <br> -->
+  <label for="Length(inch)">Length(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="Length(inch)" name="Part_Size_Length" value="0" style="width: 72px"><br><!-- <br>  -->
+  <label for="Weight(kg)">Weight(kg)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="Weight (kg)" name="Part_Size_Weight" value="0" style="width: 72px"><br><!-- <br> -->
+  </div>
+  <div class="box1" style="background-color:white">
+      <!-- <br> -->
+    <b>Raw Material Size</b>
+    <!-- <br> -->
+    <hr size="1" color="black"> 
+    <!-- <br> -->
+  <label for="Thickness (inch)">Thickness(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="Thickness (inch)" name="Raw_Material_Thickness" value="0" placeholder="Thickness (inch)" style="width: 55px"><br><!-- <br> -->
+  <label for="Width(inch)">Width(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="Width(inch)" name="Raw_Material_Width" value="0" style="width: 55px"><br><!-- <br> -->
+  <label for="Length (inch)">Length(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="Length (inch)" name="Raw_Material_Length" value="0" style="width: 55px"><br><!-- <br> -->
+  <label for="Weight (kg)">Weight(kg)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="Weight (kg)" name="Raw_Material_Weight" value="0" style="width: 55px"><br><!-- <br> -->
+ <!-- &nbsp -->
+<!-- <br> -->
+  <!-- <p>Some text inside the box.</p> -->
+  </div>
+  <div class="box1" style="background-color:white">
+    <!-- <br> -->
+  <!-- <p>Some text inside the box.</p> -->
+  <b>Treatment</b><br>
+  <hr size="1" color="black">
+  <!-- <br> -->
+  <br>
+  <!-- <input type="Treatment" id="Treatment" name="Treatment" value="0" placeholder="Treatment"><br> -->
+<div id="checkboxes">
+  <div class="checkboxgroup">
+    <label for="my_radio_button_id1">PI</label>
+    <!-- <br> -->
+    <br>
+    <input type="radio" name="radio" id="my_radio_button_id1" />
+  </div>
+   <!-- &nbsp -->
+  <div class="checkboxgroup">
+    <label for="my_radio_button_id2">SP</label>
+    <!-- <br> -->
+    <br>
+    <input type="radio" name="radio" id="my_radio_button_id2" />
+  </div>
+   <!-- &nbsp -->
+  <div class="checkboxgroup">
+    <label for="my_radio_button_id3">CC</label>
+    <!-- <br> -->
+    <br>
+    <input type="radio" name="radio" id="my_radio_button_id3" />
+  </div>
+   <!-- &nbsp -->
+  <div class="checkboxgroup">
+    <label for="my_radio_button_id4">BS</label>
+    <!-- <br> -->
+    <br>
+    <input type="radio" name="radio" id="my_radio_button_id4" />
+  </div>
+  <div class="checkboxgroup">
+    <label for="my_radio_button_id5">PR</label>
+    <!-- <br> -->
+    <br>
+    <input type="radio" name="radio" id="my_radio_button_id5" />
+  </div>
+  <div class="checkboxgroup">
+    <label for="my_radio_button_id6">TC</label>
+    <br>
+    <!-- <br> -->
+    <input type="radio" name="radio" id="my_radio_button_id6" />
+  </div>
+  <div class="checkboxgroup">
+    <label for="my_radio_button_id7">TE</label>
+    <!-- <br> -->
+    <br>
+    <input type="radio" name="radio" id="my_radio_button_id7" />
+
+  </div>
+</div>
+</div>
+  
+  <br>
+<!--   <br> -->
+  <br>
+</div>
+</div>
+</form>
+<div class="clearfix">
+<div class="row">
+  <div class="column" style="background-color:white;">
+     <!-- <br> -->
+    <!-- <label for="Machining price ">Machining price:</label> -->
+    <b>Machining price</b>
+    <hr size="1" color="black"> 
+    <br>
+    <!-- <br> -->
+  Machine &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Machine" id="Machine">
+    <option value="" selected="selected">select Machine</option>
+  </select>
+  <!-- <br><br> -->
+  <label for="quote">Metal removal&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Metal_removal" value="0"  style="width: 110px"; ><br><!-- <br> -->
+  <label for="quote">Removal rate&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Removal_rate" value="0"  style="width: 112px"; ><br><!-- <br> -->
+  <label for="quote">Machine Hours&nbsp;</label>
+<input type="text" id="quote" name="Machine_Hours" value="0"  style="width: 112px"; ><br><!-- <br> -->
+<label for="quote">Machine rate&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Machine_rate" value="0"  style="width: 115px"; ><br><!-- <br> -->
+<label for="quote">price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Machining_price" value="0"  style="width: 115px";  ><br><br>
+ <div class="buttons">
+
+            <div class="action_btn">
+
+            <button name="submit" class="action_btn submit" type="submit" value="Run" style="background-color:dimgrey;color:white;"; style="width: 80px" >Run</button>
+            <button name="submit" class="action_btn cancel" type="submit" value="Edit" style="background-color:dimgrey;color:white;"; style="width: 80px">Edit</button>
+
+            <p id="saved"></p>
+
+            </div>
+
+        </div>
+  </div>
+  <div class="column" style="background-color:white;">
+    <!-- <br> -->
+    <!-- <label for="Machining price ">Material price:</label> -->
+    <b>Material price</b>
+    <hr size="1" color="black">
+    <br>
+    <label for="quote">$/kg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Material_dollar" value="0"  style="width: 120px"; ><br><!-- <br> -->
+<label for="quote">price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Material_price" value="0"  style="width: 120px";  ><br><!-- <br> -->
+ <button name="submit" class="action_btn submit" type="submit" value="Run" color="black" style="background-color:dimgrey;color:white;"; style="width: 120px" >Run</button>
+            <button name="submit" class="action_btn cancel" type="submit" value="Edit" style="background-color:dimgrey;color:white;"; style="width: 120px">Edit</button>
+            <br>
+            <br>
+
+<div class="div1">
+
+<label for="Comment:">Comment:</label>
+ <!-- <br> -->
+ <!-- <br> -->
+<p>JW : Estimate formulas are currenetly being revised</p>
+<!-- <br> -->
+<button name="submit" class="action_btn submit" type="submit" value="Edit" style="background-color:dimgrey;color:white;"; color="black" style="width: 80px" >Edit</button>
+<button name="submit" class="action_btn cancel" type="submit" style="background-color:dimgrey;color:white;"; value="Save" style="width: 80px">Save</button>
+</div>
+<!-- <br> -->
+  </div>
+  <div class="column" style="background-color:white;">
+    <!-- <label for="Treatment Price ">Treatment Price:</label>  -->
+    <b>Treatment Price</b>
+    <hr size="1" color="black">  
+    <!-- <br> -->
+    <br>
+    <label for="quote">price:&nbsp;&nbsp;</label>
+<input type="text" id="quote" name="Treatment_Price" value="0"  style="width: 140px";  ><br><br>
+ <button name="submit" class="action_btn submit" type="submit" style="background-color:dimgrey;color:white;"; value="Run" style="width: 80px" >Run</button>
+            <button name="submit" class="action_btn cancel" style="background-color:dimgrey;color:white;"; type="submit" value="Edit" style="width: 80px">Edit</button>
+
+  </div>
+</div>
+</div>
+<table class="tftable">
+<tr><th>Quote No</th><th>Manufacturer</th><th>Model</th><th>Part No</th><th>Part Name</th><th>Machining</th><th>Material</th><th>Treatment</th><th>Total</th></tr>
+<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td></tr>
+</table> 
+</body>
+<style>
+/*<style>
+* {
+  box-sizing: border-box;
+}
+*/
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 220px;
+    border:1px solid black;
+  border-width: thin;
+   /* Should be removed. Only for demonstration */
+}
+.button5 {background-color: #555555;} /* Black */
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</style>
+
+
+<!-- </form> -->
+
+<!-- <style> 
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+
+<form method="POST" action="page2.html" agign='CENTRE'>
+     <input type="submit" value="Submit" align="CENTRE">
+    </form> -->
+
+<!-- <head> -->
+<style>
+/*.containernew { 
+  height: 200px;
+  position: relative;
+  border: 3px solid green; 
+}*/
+
+.centerbutton {
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  -ms-transform: translate(-25%, -25%);
+  transform: translate(-25%, -25%);
+}
+</style>
+
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<!-- <div class="leftbutton">
+</div>
+
+
+</body>
+
+
+</body> -->
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: white;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+.box {
+  /*float: left;*/
+  width: auto;
+  padding: 50px;
+}
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+<!-- <h2>Popup Form</h2> -->
+<!-- <p>Click on the button at the bottom of this page to open the login form.</p>
+<p>Note that the button and the form is fixed - they will always be positioned to the bottom of the browser window.</p> -->
+
+<!-- <button  class="open-button" onclick="goToURL()" value="Open Excel"><img src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/256/Settings-icon.png" height ="30" width="30" /> Open Formula </button> -->
+<!-- <button type="button"> </button> -->
+
+<div class="form-popup" id="myForm">
+  <!-- <form action="/action_page.php" class="form-container"> -->
+<h1> Formula </h1>
+<br>
+<p>Quote amount = a+b+c+d $ </p>
+    <br>
+<!--     <h1>Login</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required> -->
+
+    <button type="submit" class="btn">change formula</button>
+    <button type="submit" class="btn">change formula</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  <!-- </form> -->
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+    </td>
+    <td>
+      
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+</head>
+  <head>
+  <link rel="stylesheet" href="page5.css">
+</head>
+<div class="container" id="selectManufacturer">
+<input type="button" class="button" value="DETAIL" style="background-color:blueviolet; float: right;">
+<input type="button" class="button" value="SHOW" style="float: right;">
+</div>
+<h1>References</h1>
+<br>
+<!-- <br> -->
+
+<div class="clearfix">
+  <div class="boxb" style="background-color:white">
+<!-- <form name="form1" id="form1" action="/action_page.php" id=ddlModels onchange = "EnableDisableTextBox(this)"> -->
+
+Manufacturer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  <br><!-- <br> -->
+  Model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Model" id="Model">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  <br><!-- <br> -->
+    Machine name&nbsp;&nbsp;<select name="Model" id="Model">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  </div>
+  <div class="boxb" style="background-color:white;">
+  
+<!-- <form name="form1" id="form1" action="/action_page.php" id=ddlModels onchange = "EnableDisableTextBox(this)"> -->
+  Category&nbsp;&nbsp;&nbsp;&nbsp;<select name="Category" id="Category">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  <br><!-- <br> -->
+  Form&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Form" id="Form">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+  <br><!-- <br> -->
+  Alloy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Alloy" id="Alloy">
+    <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+  </select>
+<!--   Material &nbsp; &nbsp; &nbsp; &nbsp; : <select name="Material" id="Material">
+    <option value="" selected="selected">Select Manufacturer and Model first</option> -->
+  </select>
+  </div>
+</div>
+<div class="boxed">
+<div class="container" id="selectModel">
+</div>
+<head>
+<style>
+
+.centerbutton {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.boxed {
+  border: 1px black ;
+}
+</style>
+</head>
+<body>
+<div class="centrebutton">
+<!-- <form method="POST" action="page5.html"> -->
+<!--      <input type="submit" value="SHOW"> -->
+<!--      <br>
+     <br>
+ -->
+    <!-- </form> -->
+
+</div>
+
+</body>
+</body>
+</html>
+          
+<style type="text/css">
+.tftable {font-size:8px;color:grey;width:auto;border-width: 1px;table-layout: auto;border-color: #729ea5;border-collapse: collapse;}
+.tftable th {font-size:8px;background-color:black;border-width: 1px;padding: 15px;border-style: solid;border-color: #729ea5;text-align:left;}
+.tftable tr {background-color:#DCDCDC;}
+.tftable td {font-size:8px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
+.tftable tr:hover {background-color:antiquewhite;}
+</style>
+<!-- <p>Reference:</p> -->
+<table class="tftable" border="1">
+<tr><th>Manufacturer</th><th>Model</th><th>Part Number</th><th>Part Name</th><th>Category</th><th>Form</th><th>Alloy</th><th>Material Thickness</th><th>Material Size_Width</th><th>Material Size_Length</th><th>Material Density(kg_m^3)</th></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- 
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- <tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- <tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
+<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+<!-- <tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
+</table>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+
+
