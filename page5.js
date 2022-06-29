@@ -49,6 +49,7 @@ window.onload = function() {
   var subjectSel = document.getElementById("Manufacturer");
   var topicSel = document.getElementById("Model");
   var chapterSel = document.getElementById("Material");
+  var FormSel = document.getElementById("Form")
   for (var x in subjectObject) {
     subjectSel.options[subjectSel.options.length] = new Option(x, x);
   }
