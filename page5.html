@@ -43,10 +43,264 @@ height: 100%;
 .exp{visibility: hidden;}
 </style>
 </head>
+ <script src="https://code.jquery.com/jquery-3.5.1.js"
+          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+          crossorigin="anonymous"></script>
+ 
+  <script type="text/javascript">
+    $(document).on('submit','#todo-form',function(e)
+                   {
+      // console.log('hello');
+      e.preventDefault();
+      $.ajax({
+        type:'POST',
+        url:'/',
+        data:{
+          todo:$("#Manufacturer2").val()
+        },
+        success:function()
+        {
+          alert('done');
+        }
+      })
+    });
+  </script>
+
 <script type="text/javascript">
+
+//   function fill() {
+  
+// }
+
+function checkfun(){
+    var RMT = parseFloat(document.getElementById('Raw_Material_Thickness').value);
+    var PST = parseFloat(document.getElementById('Part_Size_Thickness').value);
+
+    if (PST > RMT) {
+        alert("enter value greater than part Thickness");
+        return false;
+    }
+    
+    return true;
+}
+
+function checkfun1(){
+    var RMW = parseFloat(document.getElementById('Raw_Material_Width').value);
+    var PSW = parseFloat(document.getElementById('Part_Size_Width').value);
+
+    if (PSW > RMW) {
+        alert("enter value greater than part Width");
+        return false;
+    }
+    
+    return true;
+}
+
+function checkfun2(){
+    var RML = parseFloat(document.getElementById('Raw_Material_Length').value);
+    var PSL = parseFloat(document.getElementById('Part_Size_Length').value);
+
+    if (PSL > RML) {
+        alert("enter value greater than part Length");
+        return false;
+    }
+    
+    return true;
+}
+function myrun()
+{
+   var formInput9 = document.getElementById('Machine_Hours').value;
+   var formInput10 = document.getElementById('Machine_rate').value;
+// document.getElementById('newText5').innerHTML = parseInt(formInput9) * parseInt(formInput10);
+
+  input = parseInt(formInput10) * parseInt(formInput9);
+  document.getElementById('Machining_price').value = input;
+}
+function myedit()
+{
+  document.getElementById("Machining_price").removeAttribute("disabled");
+  inneredit1()
+  function inneredit1()
+  {
+  var formInput11 = document.getElementById('Machining_price').value;
+  document.getElementById('newText55').innerHTML = parseInt(formInput11);
+  }
+}
+
+function myf1()
+{
+  var myf1var = document.getElementById('Part_Size_Thickness').value;
+  console.log(myf1var)
+}
+function myf2()
+{
+  var myf2var = document.getElementById('Part_Size_Width').value;
+  console.log(myf2var)
+}
+function myf3()
+{
+  var myf3var = document.getElementById('Part_Size_Length').value;
+  console.log(myf3var)
+}
+function myf4()
+{
+  var myf4var = document.getElementById('Material').value;
+  // console.log(myf3var)
+}
+function myf5()
+{
+  var myf1var = document.getElementById('Part_Size_Thickness').value;
+  var myf2var = document.getElementById('Part_Size_Width').value;
+  var myf3var = document.getElementById('Part_Size_Length').value;
+  var myf5var = parseInt(myf1var) * parseInt(myf2var) * parseInt(myf3var) * 0.000016387
+  // document.getElementById('Part_Size_Weight').innerHTML = myf5var;
+//   if(myf5var== NaN){
+//   // document.getElementById('Part_Size_Weight').value = 0;
+//   myf5var = 0;
+// }
+// else
+// {
+   var myf4var = document.getElementById('Material').value;
+   if(myf4var =='Aluminium')
+   { 
+    myf5var = myf5var * 2823.35
+  document.getElementById('Part_Size_Weight').value = myf5var;
+    }
+    else if(myf4var =='Steel')
+   { 
+    myf5var = myf5var * 7805.732
+  document.getElementById('Part_Size_Weight').value = myf5var;
+    }
+    else if(myf4var =='IRON')
+   { 
+    myf5var = myf5var * 1000
+    //here 1000 is dummy for iron
+  document.getElementById('Part_Size_Weight').value = myf5var;
+    }
+    else if(myf4var =='Titanium')
+   { 
+    myf5var = myf5var * 4430
+  document.getElementById('Part_Size_Weight').value = myf5var;
+    }
+    else
+    {
+      myf5var = myf5var * 0
+      document.getElementById('Part_Size_Weight').value = myf5var;
+    }
+// }
+  // console.log(myf1var,myf2var,myf3var)
+  // console.log("done",myf5var)
+}
+
+function metalhoursfunc()
+{
+  var metalhoursvar1 = document.getElementById('Metal_removal').value;
+  var metalhoursvar2 = document.getElementById('Removal_rate').value;
+  var finalhoursremoval = metalhoursvar1 / metalhoursvar2
+  document.getElementById('Machine_Hours').value = finalhoursremoval;
+
+}
+
+function metalremovalfunc()
+{
+  var metalremovalvar1 = document.getElementById('Part_Size_Weight').value;
+  var metalremovalvar2 = document.getElementById('Raw_Material_Weight').value;
+  var finalmetaremoval = metalremovalvar2 - metalremovalvar1
+  document.getElementById('Metal_removal').value = finalmetaremoval;
+
+}
+
+// function removalrate()
+// {
+  
+// }
+
+function machineratefunc()
+{
+  var removalratevar1 = document.getElementById('Machine').value;
+   if (removalratevar1 == 'BM2740')
+   {
+      var finalrate = 28.55
+      document.getElementById('Machine_rate').value = finalrate;
+   }
+}
+
+function myf5r()
+{
+  var myf1varr = document.getElementById('Raw_Material_Thickness').value;
+  var myf2varr = document.getElementById('Raw_Material_Width').value;
+  var myf3varr = document.getElementById('Raw_Material_Length').value;
+  var myf5varr = parseInt(myf1varr) * parseInt(myf2varr) * parseInt(myf3varr) * 0.000016387
+  // document.getElementById('Part_Size_Weight').innerHTML = myf5var;
+//   if(myf5var== NaN){
+//   // document.getElementById('Part_Size_Weight').value = 0;
+//   myf5var = 0;
+// }
+// else
+// {
+   var myf4varr = document.getElementById('Material').value;
+   if(myf4varr =='Aluminium')
+   { 
+    myf5varr = myf5varr * 2823.35
+  document.getElementById('Raw_Material_Weight').value = myf5varr;
+    }
+    else if(myf4varr =='Steel')
+   { 
+    myf5varr = myf5varr * 7805.732
+  document.getElementById('Raw_Material_Weight').value = myf5varr;
+    }
+    else if(myf4varr =='IRON')
+   { 
+    myf5varr = myf5varr * 1000
+    //here 1000 is dummy for iron
+  document.getElementById('Raw_Material_Weight').value = myf5varr;
+    }
+    else if(myf4varr =='Titanium')
+   { 
+    myf5varr = myf5varr * 4430
+  document.getElementById('Raw_Material_Weight').value = myf5varr;
+    }
+    else
+    {
+      myf5varr = myf5varr * 0
+      document.getElementById('Raw_Material_Weight').value = myf5varr;
+    }
+// }
+  // console.log(myf1var,myf2var,myf3var)
+  // console.log("done",myf5var)
+}
+
+
 function changeThis(){
-  var formInput = document.getElementById('Machine_Hours').value;
-  document.getElementById('newText').innerHTML = formInput * 2;
+  var formInput = document.getElementById('Model').value;
+  document.getElementById('newText').innerHTML = formInput;
+  var formInput2 = document.getElementById('Quote_no').value;
+  document.getElementById('newText1').innerHTML = formInput2;
+  var formInput3 = document.getElementById('Manufacturer').value;
+  document.getElementById('newText2').innerHTML = formInput3;
+  var formInput4 = document.getElementById('Part_Number').value;
+  document.getElementById('newText3').innerHTML = formInput4;
+  var formInput5 = document.getElementById('Part_Name').value;
+  document.getElementById('newText4').innerHTML = formInput5;
+  
+  var formInput9 = document.getElementById('Machine_Hours').value;
+  // document.getElementById('newText9').innerHTML = formInput9;
+
+  var formInput10 = document.getElementById('Machine_rate').value;
+  // document.getElementById('newText10').innerHTML = formInput10;
+
+
+  var formInput6 = document.getElementById('Machining_price').value;
+  document.getElementById('newText5').innerHTML = formInput6;
+  
+
+  var formInput7 = document.getElementById('Material_price').value;
+  document.getElementById('newText6').innerHTML = formInput7;
+  var formInput8 = document.getElementById('Treatment_Price').value;
+  document.getElementById('newText7').innerHTML = formInput8;
+  document.getElementById('newText8').innerHTML = parseInt(formInput8) + parseInt(formInput7) + parseInt(input);
+
+  
 }
 </script>
   <head>
@@ -64,8 +318,8 @@ function changeThis(){
 
 </div>
 <div class="container" id="selectManufacturer">
-<input type="button" class="button" value="ACCEPT QUOTE" onclick='changeThis()' style="background-color:green; float: right;">
-<input type="button" class="button" value="+ NEW" style="background-color:blue ;float: right;">
+<input type="submit" class="button" value="ACCEPT QUOTE" style="background-color:green; float: right;">
+<input type="button" class="button" value="+ NEW" onclick="changeThis()" style="background-color:blue ;float: right;">
 <h1>New Quote</h1>
 <br>
 <br>
@@ -74,7 +328,7 @@ function changeThis(){
     <br>
 <!-- <form name="form1" id="form1" action="/action_page.php" id=ddlModels onchange = "EnableDisableTextBox(this)"> -->
 <label for="quote">Quote no&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-<input type="text" id="quote" name="Quote_no"><br>
+<input type="text" id="Quote_no" name="Quote_no"><br>
 Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
   </select>
@@ -89,19 +343,28 @@ Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
   </select>
   <br><br> -->
   <label for="quote">Part Number&nbsp;&nbsp;&nbsp;</label>
-<input type="text" id="quote" name="Part_Number"><br>
+<input type="text" id="Part_Number" name="Part_Number"><br>
 <label for="quote">Part  Name &nbsp; &nbsp; &nbsp;</label>
-<input type="text" id="quote" name="Part_Name"><!-- <br><br> -->
+<input type="text" id="Part_Name" name="Part_Name"><!-- <br><br> -->
   </div>
   <div class="box" style="background-color:white;">
   <label for="Material">Material</label><br>
 <!-- <form name="form1" id="form1" action="/action_page.php" id=ddlModels onchange = "EnableDisableTextBox(this)"> -->
-  Category &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<select name="Category" id="Material">
+  Category &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<select name="Material" id="Material">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
   </select>
   <br>
   Form &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Form" id="Form">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+    <option value="BAR">BAR</option>
+    <option value="Extrusion">Extrusion</option>
+    <option value="Forging">Forging</option>
+    <option value="Formed section">Formed section</option>
+    <option value="HINGE">HINGE</option>
+    <option value="Plate">Plate</option>
+    <option value="ROD">ROD</option>
+    <option value="sheet">sheet</option>
+    <option value="Tube">Tube</option>
   </select>
   <!-- <br><br> -->
   <label for="quote">Alloy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -120,13 +383,13 @@ Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
     <!-- <br> -->
     <!-- <br style="line-height:0px;" /> -->
   <label for="Thickness (inch)">Thickness(inch)&nbsp;&nbsp;&nbsp;</label>
-  <input type="text" id="Thickness (inch)" name="Part_Size_Thickness" value="0" placeholder="Thickness (inch)" style="width: 72px"><br><!-- <br> -->
+  <input type="text" id="Part_Size_Thickness" onmousemove="myf1()" name="Part_Size_Thickness" required style="width: 72px"><br><!-- <br> -->
   <label for="Width(inch)">Width(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-  <input type="text" id="Width(inch)" name="Part_Size_Width" value="0" style="width: 72px"><br><!-- <br> -->
+  <input type="text" id="Part_Size_Width" onmousemove="myf2()" name="Part_Size_Width" required style="width: 72px"><br><!-- <br> -->
   <label for="Length(inch)">Length(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-  <input type="text" id="Length(inch)" name="Part_Size_Length" value="0" style="width: 72px"><br><!-- <br>  -->
+  <input type="text" id="Part_Size_Length" onmousemove="myf3()" name="Part_Size_Length" required style="width: 72px"><br><!-- <br>  -->
   <label for="Weight(kg)">Weight(kg)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-  <input type="text" id="Weight (kg)" name="Part_Size_Weight" value="0" style="width: 72px"><br><!-- <br> -->
+  <input type="text" id="Part_Size_Weight" name="Part_Size_Weight" onmousemove="myf5()"style="width: 72px"><br><!-- <br> -->
   </div>
   <div class="box1" style="background-color:white">
       <!-- <br> -->
@@ -135,13 +398,13 @@ Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
     <hr size="1" color="black"> 
     <!-- <br> -->
   <label for="Thickness (inch)">Thickness(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-  <input type="text" id="Thickness (inch)" name="Raw_Material_Thickness" value="0" placeholder="Thickness (inch)" style="width: 55px"><br><!-- <br> -->
+  <input type="text" id="Raw_Material_Thickness" name="Raw_Material_Thickness" onmousemove="checkfun()" required  style="width: 55px"><br><!-- <br> -->
   <label for="Width(inch)">Width(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-  <input type="text" id="Width(inch)" name="Raw_Material_Width" value="0" style="width: 55px"><br><!-- <br> -->
+  <input type="text" id="Raw_Material_Width" name="Raw_Material_Width" onmousemove="checkfun1()" required style="width: 55px"><br><!-- <br> -->
   <label for="Length (inch)">Length(inch)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-  <input type="text" id="Length (inch)" name="Raw_Material_Length" value="0" style="width: 55px"><br><!-- <br> -->
+  <input type="text" id="Raw_Material_Length" name="Raw_Material_Length" onmousemove="checkfun2()" style="width: 55px"><br><!-- <br> -->
   <label for="Weight (kg)">Weight(kg)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-  <input type="text" id="Weight (kg)" name="Raw_Material_Weight" value="0" style="width: 55px"><br><!-- <br> -->
+  <input type="text" id="Raw_Material_Weight" name="Raw_Material_Weight"  onmousemove="myf5r()" style="width: 55px"><br><!-- <br> -->
  <!-- &nbsp -->
 <!-- <br> -->
   <!-- <p>Some text inside the box.</p> -->
@@ -209,7 +472,7 @@ Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
   <br>
 </div>
 </div>
-</form>
+<!-- </form> -->
 <div class="clearfix">
 <div class="row">
   <div class="column" style="background-color:white;">
@@ -217,28 +480,45 @@ Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
     <!-- <label for="Machining price ">Machining price:</label> -->
     <b>Machining price</b>
     <hr size="1" color="black"> 
-    <br>
+    <label for="quote">Metal removal&nbsp;&nbsp;&nbsp;</label>
+<input type="text" id="Metal_removal"  onmousemove="metalremovalfunc()" name="Metal_removal" style="width: 110px"; ><br><!-- <br> -->
     <!-- <br> -->
-  Machine &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Machine" id="Machine">
+    <!-- <br> -->
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+  Machine &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Machine" id="Machine">
     <option value="" selected="selected">select Machine</option>
+           <option value="0">0</option>
+    <option value="5TR">5TR</option>
+    <option value="BM2740">BM2740</option>
+    <option value="C20V-3">C20V-3</option>
+    <option value="C30V-3">C30V-3</option>
+    <option value="CNC">CNC</option>
+    <option value="FOOKE">FOOKE</option>
+    <option value="G2020">G2020</option>
+    <option value="G350">G350</option>
+    <option value="G550">G550</option>
+    <option value="OKUMA">OKUMA</option>
+    <option value="VC630">VC630</option>
+    <option value="VF-6SS">VF-6SS</option>
+    <option value="VR11">VR11</option>
   </select>
   <!-- <br><br> -->
-  <label for="quote">Metal removal&nbsp;&nbsp;&nbsp;</label>
-<input type="text" id="quote" name="Metal_removal" value="0"  style="width: 110px"; ><br><!-- <br> -->
+  <!-- onmousemove="removalrate()"  -->
+  
   <label for="quote">Removal rate&nbsp;&nbsp;&nbsp;&nbsp;</label>
-<input type="text" id="quote" name="Removal_rate" value="0"  style="width: 112px"; ><br><!-- <br> -->
+<input type="text" id="Removal_rate" name="Removal_rate"  style="width: 112px"; ><br><!-- <br> -->
   <label for="quote">Machine Hours&nbsp;</label>
-<input type="text" id="Machine_Hours" name="Machine_Hours" value="0"  style="width: 112px"; ><br><!-- <br> -->
+<input type="text" id="Machine_Hours" name="Machine_Hours" onmousemove="metalhoursfunc()" style="width: 112px"; ><br><!-- <br> -->
 <label for="quote">Machine rate&nbsp;&nbsp;&nbsp;&nbsp;</label>
-<input type="text" id="quote" name="Machine_rate" value="0"  style="width: 115px"; ><br><!-- <br> -->
+<input type="text" id="Machine_rate" name="Machine_rate" onmousemove="machineratefunc()" style="width: 115px"; ><br><!-- <br> -->
 <label for="quote">price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-<input type="text" id="quote" name="Machining_price" value="0"  style="width: 115px";  ><br><br>
+<input type="text" disabled id="Machining_price" name="Machining_price"  style="width: 115px";  ><br><br>
  <div class="buttons">
 
             <div class="action_btn">
 
-            <button name="submit" class="action_btn submit" type="button" value="Run" style="background-color:dimgrey;color:white;"; style="width: 80px" >Run</button>
-            <button name="submit" class="action_btn cancel" type="button" value="Edit" style="background-color:dimgrey;color:white;"; style="width: 80px">Edit</button>
+            <button name="button" onclick="myrun()" class="action_btn submit" type="button" value="Run" style="background-color:dimgrey;color:white;"; style="width: 80px" >Run</button>
+            <button name="button" id="Machining_price" class="action_btn cancel" onclick="myedit()" type="button" value="Edit" style="background-color:dimgrey;color:white;"; style="width: 80px">Edit</button>
 
             <p id="saved"></p>
 
@@ -255,9 +535,9 @@ Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
     <label for="quote">$/kg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 <input type="text" id="quote" name="Material_dollar" value="0"  style="width: 120px"; ><br><!-- <br> -->
 <label for="quote">price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-<input type="text" id="quote" name="Material_price" value="0"  style="width: 120px";  ><br><!-- <br> -->
- <button name="submit" class="action_btn submit" type="button" value="Run" color="black" style="background-color:dimgrey;color:white;"; style="width: 120px" >Run</button>
-            <button name="submit" class="action_btn cancel" type="button" value="Edit" style="background-color:dimgrey;color:white;"; style="width: 120px">Edit</button>
+<input type="text" id="Material_price" name="Material_price" value="0"  style="width: 120px";  ><br><!-- <br> -->
+ <button name="button" class="action_btn submit" type="button" value="Run" color="black" style="background-color:dimgrey;color:white;"; style="width: 120px" >Run</button>
+            <button name="button" class="action_btn cancel" type="button" value="Edit" style="background-color:dimgrey;color:white;"; style="width: 120px">Edit</button>
             <br>
             <br>
 
@@ -268,8 +548,8 @@ Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
  <!-- <br> -->
 <p>JW : Estimate formulas are currenetly being revised</p>
 <!-- <br> -->
-<button name="submit" class="action_btn submit" type="button" value="Edit" style="background-color:dimgrey;color:white;"; color="black" style="width: 80px" >Edit</button>
-<button name="submit" class="action_btn cancel" type="button" style="background-color:dimgrey;color:white;"; value="Save" style="width: 80px">Save</button>
+<button name="button" class="action_btn submit" type="button" value="Edit" style="background-color:dimgrey;color:white;"; color="black" style="width: 80px" >Edit</button>
+<button name="button" class="action_btn cancel" type="button" style="background-color:dimgrey;color:white;"; value="Save" style="width: 80px">Save</button>
 </div>
 <!-- <br> -->
   </div>
@@ -280,16 +560,16 @@ Manufacturer &nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
     <!-- <br> -->
     <br>
     <label for="quote">price:&nbsp;&nbsp;</label>
-<input type="text" id="quote" name="Treatment_Price" value="0"  style="width: 140px";  ><br><br>
- <button name="submit" class="action_btn submit" type="button" style="background-color:dimgrey;color:white;"; value="Run" style="width: 80px" >Run</button>
-            <button name="submit" class="action_btn cancel" style="background-color:dimgrey;color:white;"; type="button" value="Edit" style="width: 80px">Edit</button>
+<input type="text" id="Treatment_Price" name="Treatment_Price" value="0"  style="width: 140px";  ><br><br>
+ <button name="button" class="action_btn submit" type="button" style="background-color:dimgrey;color:white;"; value="Run" style="width: 80px" >Run</button>
+            <button name="button" class="action_btn cancel" style="background-color:dimgrey;color:white;"; type="button" value="Edit" style="width: 80px">Edit</button>
 
   </div>
 </div>
 </div>
 <table class="tftable">
 <tr><th>Quote No</th><th>Manufacturer</th><th>Model</th><th>Part No</th><th>Part Name</th><th>Machining</th><th>Material</th><th>Treatment</th><th>Total</th></tr>
-<tr><td>Boeing</td><td>777</td><td><span id='newText'></span></td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td></tr>
+<tr><td><span id='newText1'></span></td><td><span id='newText2'></span></td><td><span id='newText'></span></td><td><span id='newText3'></span></td><td><span id='newText4'></span></td><td><span id='newText5'></span></td><td><span id='newText6'></span></td><td><span id='newText7'></span></td><td><span id='newText8'></span></td></tr>
 </table> 
 </body>
 <style>
@@ -500,7 +780,7 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 </script>
-
+</form>
 </body>
 </html>
 
@@ -522,9 +802,10 @@ function closeForm() {
   <head>
   <link rel="stylesheet" href="page5.css">
 </head>
+<form action = "http://localhost:5000" method="post" id="todo-form">
 <div class="container" id="selectManufacturer">
-<input type="button" class="button" value="DETAIL" style="background-color:blueviolet; float: right;">
-<input type="button" class="button" value="SHOW" style="background-color:orange ;float: right;">
+<!-- <input type="button" class="button" value="DETAIL" style="background-color:blueviolet; float: right;"> -->
+<input type="submit" onclick= "load_home()"   name = "btn" class="button" value="SHOW" style="background-color:orange ;float: right;">
 </div>
 <h1>References</h1>
 <br>
@@ -534,34 +815,93 @@ function closeForm() {
   <div class="boxb" style="background-color:white">
 <!-- <form name="form1" id="form1" action="/action_page.php" id=ddlModels onchange = "EnableDisableTextBox(this)"> -->
 
-Manufacturer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufacturer">
+Manufacturer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Manufacturer2" id="Manufacturer2">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+        <option value="Bombardier">Bombardier</option>
+    <option value="AIRBUS">AIRBUS</option>
+    <option value="Boeing">Boeing</option>
+    <option value="COMAC">COMAC</option>
   </select>
   <br><!-- <br> -->
-  Model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Model" id="Model">
+  Model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Model2" id="Model2">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+    <!-- <select name="cars" id="cars"> -->
+   <option value="737">737</option>
+       <option value="747">747</option>
+    <option value="757">757</option>
+    <option value="767">767</option>
+    <option value="777">777</option>
+    <option value="787">787</option>
+    <option value="G7000">G7000</option>
+    <option value="OTHER">OTHER</option>
   </select>
+  <!-- </select> -->
   <br><!-- <br> -->
-    Machine name&nbsp;&nbsp;<select name="Model" id="Model">
+    Machine name&nbsp;&nbsp;<select name="Machine_name2" id="Machine_name2">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+       <option value="0">0</option>
+    <option value="5TR">5TR</option>
+    <option value="BM2740">BM2740</option>
+    <option value="C20V-3">C20V-3</option>
+    <option value="C30V-3">C30V-3</option>
+    <option value="CNC">CNC</option>
+    <option value="FOOKE">FOOKE</option>
+    <option value="G2020">G2020</option>
+    <option value="G350">G350</option>
+    <option value="G550">G550</option>
+    <option value="OKUMA">OKUMA</option>
+    <option value="VC630">VC630</option>
+    <option value="VF-6SS">VF-6SS</option>
+    <option value="VR11">VR11</option>
   </select>
   </div>
   <div class="boxb" style="background-color:white;">
   
 <!-- <form name="form1" id="form1" action="/action_page.php" id=ddlModels onchange = "EnableDisableTextBox(this)"> -->
-  Category&nbsp;&nbsp;&nbsp;&nbsp;<select name="Category" id="Category">
+  Category&nbsp;&nbsp;&nbsp;&nbsp;<select name="Category2" id="Category2">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+    <option value="Aluminium">Aluminium</option>
+    <option value="Steel">Steel</option>
+    <option value="IRON">IRON</option>
+    <option value="Titanium">Titanium</option>
+    <!-- <option value="IRON">IRON</option> -->
   </select>
   <br><!-- <br> -->
-  Form&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Form" id="Form">
+  Form&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Form2" id="Form2">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
+    <option value="STRINGER">STRINGER</option>
+    <option value="ANGLE">ANGLE</option>
+    <option value="ATTACH PLATE">ATTACH PLATE</option>
+    <option value="RING">RING</option>
+    <option value="CHORD">CHORD</option>
+    <option value="ANTENNA">ANTENNA</option>
+    <option value="DOOR">DOOR</option>
+    <option value="MARKER">MARKER</option>
+    <option value="FRAME">FRAME</option>
+    <option value="PANEL">PANEL</option>
+
   </select>
   <br><!-- <br> -->
-  Alloy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Alloy" id="Alloy">
+  Alloy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Alloy2" id="Alloy2">
     <option value="" selected="selected">select &nbsp;&nbsp;your preference</option>
-  </select>
-<!--   Material &nbsp; &nbsp; &nbsp; &nbsp; : <select name="Material" id="Material">
-    <option value="" selected="selected">Select Manufacturer and Model first</option> -->
+<!--   </select> -->
+<option value="301">301</option>
+    <option value="304">304</option>
+    <option value="321">321</option>
+    <option value="2024">2024</option>
+    <option value="2219">2219</option>
+    <option value="4330">4330</option>
+    <option value="6013">6013</option>
+    <option value="6061">6061</option>
+    <option value="7050">7050</option>
+    <option value="7075">7075</option>
+    <option value="7136">7136</option>
+    <option value="7150">7150</option>
+    <option value="15-5PH">15-5PH</option>
+    <option value="9Ni-4Co">9Ni-4Co</option>
+    <option value="CP 55">CP 55</option>
+    <option value="Mylar">Mylar</option>
+    <option value="Nylon6">Nylon6</option>
   </select>
   </div>
 </div>
@@ -570,7 +910,16 @@ Manufacturer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufa
 </div>
 <head>
 <style>
-
+table, th, td {
+  border: 1px solid black;
+}
+.test{
+  width:750px;
+  height:500px;
+  background-color:lightgrey;
+  /*float:left;*/
+  border:1px solid black;
+}
 .centerbutton {
   margin: 0;
   position: absolute;
@@ -598,51 +947,111 @@ Manufacturer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="Manufacturer" id="Manufa
 </body>
 </body>
 </html>
-          
+          <!-- font-size:8px; -->
 <style type="text/css">
-.tftable {font-size:8px;color:grey;width:auto;border-width: 1px;table-layout: auto;border-color: #729ea5;border-collapse: collapse;}
-.tftable th {font-size:8px;background-color:black;border-width: 1px;padding: 15px;border-style: solid;border-color: #729ea5;text-align:left;}
+.tftable {color:grey;width:100;border-width: 1px;table-layout: fixed;border-color: #729ea5;border-collapse: collapse;}
+.tftable th {background-color:black;border-width: 1px;padding: 2px;border-style: solid;border-color: #729ea5;text-align:left;}
 .tftable tr {background-color:#DCDCDC;}
-.tftable td {font-size:8px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
-.tftable tr:hover {background-color:antiquewhite;}
+.tftable td {border-width: 1px;padding: 2px;border-style: solid;border-color: #729ea5;}
+/*.tftable tr:hover {background-color:antiquewhite;}*/
 </style>
 <!-- <p>Reference:</p> -->
-<table class="tftable" border="1">
-<tr><th>Manufacturer</th><th>Model</th><th>Part Number</th><th>Part Name</th><th>Category</th><th>Form</th><th>Alloy</th><th>Material Thickness</th><th>Material Size_Width</th><th>Material Size_Length</th><th>Material Density(kg_m^3)</th></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- 
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- <tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td> <input type="checkbox" name="myTextEditBox" value="checked" />Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- <tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- <tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr>
-<tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-<!-- <tr><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td>Boeing</td><td>777</td><td>100.0</td><td>Aluminium</td><td> 12200.0 $</td><td> 12200.0 $</td></tr> -->
-</table>
+<!-- style="overflow-y: scroll;" -->
+<!-- <table class="tftable" border="1" style="width:100%"> -->
+  <div id="topBar" class="test" style="font-size:2px;" >
+    <!-- <a href ="#" id="load_home"> HOME </a> -->
+</div>
+<!-- <div id ="content">         -->
+<!-- </div> -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"> -->
+</script>
+<script type="text/javascript">
+// t = setTimeout(load_home, 10000);
+// console.log("before load")
+// async 
+async function load_home() {
+  // await new Promise(r => setTimeout(r, 5000));
+//   var image = $('<img></img>');
+  await new Promise(resolve => setTimeout(resolve, 5000));
+// image.attr('src', 'temp.jpg');
+// $('#topBar').append(image);
+  // document.getElementById("topBar").src="temp.jpg"
+// var img = document.createElement("img"); 
+// img.src = "temp.jpg"; 
+// var src = document.getElementById("topBar"); 
+// src.appendChild(img);
+  // console.log("calling div load")
+  // setTimeout(load_home, 5000);
+  // await new Promise(resolve => setTimeout(resolve, 5000));
+  // document.write("<img src='temp.jpg' alt='alt tag'>");
+  // document.getElementById('topBar')
+  //   .innerHTML = '<img src='temp.jpg' alt='alt tag'>';
+    // document.getElementById('topBar').src="temp.jpg";
+    // var $img = $( '<img>' ).attr({'src':images[i]});
+    // $('#topBar').append('<img src="'+'temp.jpg'+'" alt="" />');
+     var ob = '<object type="text/html"  style="font-size:1pt"  font-size: 0; overflow-y="scroll" width="100%" height="100%" data="templates/index.html" ></object>';
+     document.getElementById("topBar").innerHTML= ob
+     // // ob.style.fontSize = 'small'
+     // ob.size="1";
+     // console.log("calling div ended")
+}
+// console.log("after load")
+// clearTimeout(t);
+</script>
+<!-- <script>
+  jQuery('topBar').css("overflow-y", "scroll");
+ $(document).ready( function() {
+    $("#load_home").on("click", function() {
+//       setTimeout(function(){
+
+// },10000);
+         $("#topBar").load("http://localhost:5000/");
+
+    });
+});
+</script>  -->
+<!-- <script>
+  // jQuery('topBar').css("overflow-y", "scroll");
+$(document).ready( function() {
+    $("#load_home").on("click", function() {
+//       setTimeout(function(){
+
+// },10000);
+         $("#topBar").load("http://localhost:5000/");
+
+    });
+});
+</script> -->
+<!-- //loading inside div// -->
+
+<!-- <script>
+  $(document).ready(function () {
+            jQuery('topBar').css("overflow-y", "scroll");
+            // Adding click event on id div-1
+            // if it clicked then anonymous
+            // function will be called
+            $(document).ready( function() {
+            $('#load_home').on("click", function () {
+  
+                // Load the exertnal html
+                // here this refers to 
+                // current selector
+                $("#topBar").load('index.html');
+            });
+  
+            // Same as above
+            // $('#div-2').click(function () {
+            //     $(this).load('div-2.html');
+            // });
+        });
+            });
+</script> -->
+<!-- // -->
+<!-- </table>
     </td>
   </tr>
-</table>
+</table> -->
 </form>
 </body>

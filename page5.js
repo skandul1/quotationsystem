@@ -24,25 +24,25 @@ function test() {
 
 var subjectObject = {
   "Bombardier": {
-    "737": ["Alluminum", "Steel", "IRON", "Titanium"],
-    "727": ["Alluminum", "Steel"],
+    "737": ["Aluminium", "Steel", "IRON", "Titanium"],
+    "727": ["Aluminium", "Steel"],
     "680": ["IRON", "Titanium"]
   },
   "AIRBUS": {
-    "700": ["Alluminum"],
+    "700": ["Aluminium"],
     "600": ["IRON"]
   },
   "Boeing": {
-    "637": ["Alluminum", "Steel"],
+    "637": ["Aluminium", "Steel"],
     "787": ["Titanium"]
 },
 "COMAC": {
     "300": ["IRON", "Titanium"],
-    "900": ["Alluminum", "Steel", "IRON", "Titanium"]
+    "900": ["Aluminium", "Steel", "IRON", "Titanium"]
   },
 "Other": {
     "300": ["IRON", "Titanium"],
-    "900": ["Alluminum", "Steel", "IRON", "Titanium"]
+    "900": ["Aluminium", "Steel", "IRON", "Titanium"]
   }
 }
 window.onload = function() {
@@ -78,19 +78,19 @@ function goToURL() {
   window.open('https://drive.google.com/file/d/1EdIZRqZQuM-3LZBO_nmoNh-LTkBfmzhz/view?usp=sharing');
 }
 
-var checkList = document.getElementById('list1');
-checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
-  if (checkList.classList.contains('visible'))
-    checkList.classList.remove('visible');
-  else
-    checkList.classList.add('visible');
-}
+// var checkList = document.getElementById('list1');
+// checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+//   if (checkList.classList.contains('visible'))
+//     checkList.classList.remove('visible');
+//   else
+//     checkList.classList.add('visible');
+// }
 
-$(document).ready(function() {
-        $('#ingredients').multiselect();
-    });
+// $(document).ready(function() {
+//         $('#ingredients').multiselect();
+//     });
 
-$(document).ready(function () {
-  $("#test").CreateMultiCheckBox({ width: '230px',
-             defaultText : 'Select Below', height:'250px' });
-});
+// $(document).ready(function () {
+//   $("#test").CreateMultiCheckBox({ width: '230px',
+//              defaultText : 'Select Below', height:'250px' });
+// });
